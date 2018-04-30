@@ -350,7 +350,7 @@
         var self = this,
             contClass = 'croppie-container',
             customViewportClass = self.options.viewport.type ? 'cr-vp-' + self.options.viewport.type : null,
-            boundary, img, viewport, overlay, bw, bh;
+            boundary, img, viewport,face, overlay, bw, bh;
 
         self.options.useCanvas = self.options.enableOrientation || _hasExif.call(self);
         // Properties on class
@@ -359,6 +359,8 @@
 
         boundary = self.elements.boundary = document.createElement('div');
         viewport = self.elements.viewport = document.createElement('div');
+        face = self.elements.face = document.createElement('div');
+        addClass(face,'cr-face')
         img = self.elements.img = document.createElement('img');
         overlay = self.elements.overlay = document.createElement('div');
 
@@ -396,6 +398,7 @@
         self.element.appendChild(boundary);
         boundary.appendChild(self.elements.preview);
         boundary.appendChild(viewport);
+        viewport.appendChild(face);
         boundary.appendChild(overlay);
 
         addClass(self.element, contClass);
